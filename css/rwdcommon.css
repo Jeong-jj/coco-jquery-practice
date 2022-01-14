@@ -1,0 +1,135 @@
+@charset "utf-8";
+@media screen and (max-width:1024px) {
+       
+    #header #nav {  
+        position:fixed; top:0px; transform:translateY(0%);
+        right:0px; font-size:18px; color:#1e1e1e; 
+        background:rgba(0,0,0,0.5); 
+        left:100%;
+        bottom:0px; overflow-y:auto; overflow-x:hidden }
+    #header #nav .depth1 {
+        position:absolute; top:0; height:100%;
+        right:-200px; 
+        width:200px; background:#fff;
+        padding-top:50px; 
+    }
+    #header #nav .depth1 > li { float:none; position:relative; }
+    #header #nav .depth1 > li > a { padding:20px 40px; display:block; 
+        text-align:center; }
+    #header #nav .depth1 > li:hover > a { color: #00529b; }
+    #header .depth2 { position:static; top:100%; left:0; 
+        background:#555; font-size:14px;
+        color:#fff; width:100%; text-align:center; 
+        display:none; }    
+
+    #header .opennav { display:block; position:absolute; top:50%; 
+        transform:translateY(-50%);
+        right:20px; font-size:30px;
+        z-index:999999999;
+        transition:all 0.3s
+    }  
+
+    #header .opennav.on {
+        position:fixed; top:20px; 
+        transform:translateY(0%);
+        right:20px; 
+    }
+
+    /* 검색창 */
+    #header .search {
+        position:fixed; /* nav와 달리 아예 다른 공간으로 가기 때문에 fixed사용 */
+        right:70px;
+        top:60px; 
+        transform:translateY(0);
+        font-size: 28px;
+        z-index:99;
+    
+    }
+    #header .search #sbox {
+        border:0px solid #000; text-indent:1em;     width:0px;  height: 30px;
+        overflow:hidden; outline:none;
+        transition:all 0.5s;
+        position: absolute; top: 0px; right: 40px;}
+    #header .search.on #sbox {
+        width: 300px; border: 1px solid #000;
+    }
+
+    /* 슬라이드 구역 */
+    .article1 .slick-dots li {width:80px;}
+    .article1 .slick-dots li.slick-active button {width:80px;}
+    .article1 .plpa {transform:translate(140px);}
+    
+    /* cs구역 - 구역들이 세로로 정렬되게 바꾸기 */
+    .article5 .row > div {width: 100%}
+    .article5 .row > div.cs_board { padding-right:0; }
+    .article5 .row > div.cs_center {
+        padding: 30px;
+        margin: 30px 0;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .article5 .cs_center li::before {display: none;}
+
+    .article5 .row div.cs_movie { padding-left:0; text-align: center;}
+
+    .youtubeVideoInner {top: 30% !important; bottom: -10% !important;}
+
+    /* footer구역 span한줄에 한줄만 놓기 */
+    #footer .info span {display: block;}
+}
+
+
+/* mobile크기일 때 반응형 변환 */
+@media screen and (max-width: 768px) {
+    #header .search #sbox {
+        top: 63px; right: 0px; height: 50px;
+    }
+
+/* 슬라이드 반응형 변환 */
+    #section h2 {font-size: 25px; padding: 30px 0 10px;}
+    /*
+    그냥 font-size만 바꿔선 먹히지 않고 원인을 몰라서 우선순위를 높여주는 방식으로 적용: !improtant
+     >> 문제 발견해서 해결(index.css에서랑 여기에서 모두 포함 h2관련 작성문에 id까지 포함한 것과 하지 않은 것 사이 충돌 때문이었음)
+    */
+    #section .article1 .slick-slide .slide_text h2 {
+        font-size: 25px; /* 위에 전체에다가 줘서 안주려고 했더니 없애면 안먹힘
+        >> 이유를 생각해보니 slick-slide라는 class는 원래 있던 요소가 아니어서 먹히지 않는 것 같음 */
+        line-height: 25px;
+        font-weight: 800; transform:unset; opacity:unset;
+        transition:unset
+    }
+    .article1 .slick-slide .slide_text p {display: none;}
+    .article1 .slide {height:350px;}
+
+
+    .article2 li {
+        height:220px; width:49%; margin-right:2%;
+        opacity:1; 
+        margin-bottom: 15px;
+    }
+
+    .article2 li:nth-child(1) {transform:translate(0%, 0) }
+    .article2 li:nth-child(2) {transform:translate(0%, 0); margin-right:0;}
+    .article2 li:nth-child(3) {transform:translate(0%, 0) }
+    .article2 li:nth-child(4) {margin-right:0; transform:translate(0%, 0)}
+
+    .article2 li:hover > div { bottom:25px;}
+    .article2 li > div {text-align: center;}
+    .article2 li > div > p {display: none;}
+    .article2 li > div > a {margin-top: 20px; padding: 10px 20px;}
+
+    .article3 {margin-top: 30px; padding: 50px 0;}
+
+    .article4 li {
+        float:left; width: 49%;
+        margin-right:0;
+        transform:scale(1); opacity:1;
+    }
+    /* .article4 li:nth-child(3n) { margin-right:0 } */
+    .article4 li:nth-child(odd) { margin-right:2% }
+
+    .article4 li p {display: none;}
+
+
+}
