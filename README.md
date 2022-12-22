@@ -1,3 +1,3 @@
-# coco220114
+# Design coco website
 
-https://jeong-jj.github.io/coco220114/
+URL: https://jeong-jj.github.io/practice_design-coco/
